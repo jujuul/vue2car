@@ -1,11 +1,21 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-19 22:07:08
+ * @LastEditTime: 2021-01-21 22:43:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-cars\web\src\views\index\index.vue
+-->
 <template>
   <div>
     <!-- cars data渲染 -->
     <Cars />
     <!-- 地图 -->
     <Map />
+    <!-- 导航 -->
+    <Navbar />
     <!-- 会员 -->
-    <div id="children-view" :class="[show ? 'open' : '']">
+    <div id="children-view" :class="{ open: show }">
       <router-view />
     </div>
   </div>
@@ -14,22 +24,20 @@
 <script>
 import Map from "../amap/index";
 import Cars from "../cars/index";
+import Navbar from "@c/navbar";
 export default {
   name: "Index",
-  components: { Map, Cars },
+  components: { Map, Cars, Navbar },
   data() {
-    return {
-      show: false,
-    };
+    return {};
   },
-  watch: {
-    $route: {
-      handler(newVal) {
-        const routerName = newVal.name;
-        this.show = routerName === "Index" ? false : true;
-      },
+  computed: {
+    show() {
+      const router = this.$route;
+      return router.name === "Index" ? false : true;
     },
   },
+
   methods: {},
 };
 </script>
