@@ -1,35 +1,54 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-19 22:07:08
- * @LastEditTime: 2021-01-20 21:17:53
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-cars\web\src\views\index\index.vue
--->
 <template>
-  <div class="amap-wrap">
-    <el-amap vid="amapDemo" :center="center" :zoom="zoom" class="amap-demo">
-    </el-amap>
+  <div>
+    <!-- cars data渲染 -->
+    <Cars />
+    <!-- 地图 -->
+    <Map />
+    <!-- 会员 -->
+    <div id="children-view" :class="[show ? 'open' : '']">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
+import Map from "../amap/index";
+import Cars from "../cars/index";
 export default {
   name: "Index",
+  components: { Map, Cars },
   data() {
     return {
-      zoom: 16,
-      center: [116.404765, 39.918052],
+      show: false,
     };
   },
-  created() {},
-  mounted() {},
+  watch: {
+    $route: {
+      handler(newVal) {
+        const routerName = newVal.name;
+        this.show = routerName === "Index" ? false : true;
+      },
+    },
+  },
   methods: {},
 };
 </script>
 
 <style lang='scss'>
-.amap-wrap {
-  height: 100vh;
+#children-view {
+  position: fixed;
+  top: 0;
+  right: -600px;
+  bottom: 0;
+  width: 410px;
+  background-color: #34393f;
+  z-index: 101;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  &.open {
+    right: 0px;
+  }
 }
 </style>
