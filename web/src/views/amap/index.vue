@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-01-21 20:44:24
+ * @LastEditTime: 2021-01-28 23:00:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-cars\web\src\views\amap\index.vue
+-->
 <template>
   <div class="amap-wrap">
     <el-amap vid="amapContainer" :events="events" class="amap-demo"> </el-amap>
