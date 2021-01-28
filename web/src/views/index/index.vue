@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-19 22:07:08
- * @LastEditTime: 2021-01-21 22:43:54
+ * @LastEditTime: 2021-01-28 22:54:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue-cars\web\src\views\index\index.vue
@@ -50,7 +50,7 @@ export default {
   bottom: 0;
   width: 410px;
   background-color: #34393f;
-  z-index: 101;
+  z-index: 99;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -ms-transition: all 0.3s ease 0s;
